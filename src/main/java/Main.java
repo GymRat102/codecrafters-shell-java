@@ -16,7 +16,7 @@ public class Main {
             if (command.isEmpty()) {
                 System.out.println(parts[0] + ": command not found");
             } else {
-                command.get().handle(parts[1]);
+                command.get().handle(parts);
             }
         }
     }

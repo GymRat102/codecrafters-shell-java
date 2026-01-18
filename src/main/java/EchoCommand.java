@@ -4,7 +4,11 @@ public class EchoCommand extends Command {
     }
 
     @Override
-    public void handle(String input) {
-        System.out.println(input);
+    public void handle(String[] inputs) {
+        if (inputs.length < 2) {
+            System.out.println("Nothing to echo.");
+            return;
+        }
+        System.out.println(inputs[1]);
     }
 }

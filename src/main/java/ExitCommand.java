@@ -5,7 +5,7 @@ public class ExitCommand extends Command {
     }
 
     @Override
-    public void handle(String input) {
+    public void handle(String[] inputs) {
         System.exit(0);
     }
 }
