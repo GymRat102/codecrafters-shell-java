@@ -1,21 +1,22 @@
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        for(;;) {
+        for (; ; ) {
             System.out.print("$ ");
 
             Scanner scanner = new Scanner(System.in);
-            String command = scanner.nextLine();
+            String input = scanner.nextLine();
+            String[] parts = input.split(" ", 2);
 
-            if (command.equals("exit")) {
-                System.exit(0);
-            } else if (command.startsWith("echo ")) {
-                String whatToEcho = command.substring(5);
-                System.out.println(whatToEcho);
+            Optional<Command> command = CommandFactory.fromString(parts[0]);
+
+            if (command.isEmpty()) {
+                System.out.println(parts[0] + ": input not found");
             } else {
-                System.out.println(command + ": command not found");
+                command.get().handle(parts[1]);
             }
         }
     }
