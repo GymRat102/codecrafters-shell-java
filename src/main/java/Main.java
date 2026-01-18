@@ -14,7 +14,7 @@ public class Main {
             Optional<Command> command = CommandFactory.fromString(parts[0]);
 
             if (command.isEmpty()) {
-                System.out.println(parts[0] + ": input not found");
+                System.out.println(parts[0] + ": command not found");
             } else {
                 command.get().handle(parts[1]);
             }
